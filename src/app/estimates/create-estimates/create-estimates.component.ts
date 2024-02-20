@@ -8,8 +8,44 @@ import { EstimatesListComponent } from '../estimates-list/estimates-list.compone
   styleUrls: ['./create-estimates.component.css']
 })
 export class CreateEstimatesComponent implements OnInit {
+  buttons: string[] = ["BASEPRICE",
+    "SITECOST",
+    "AUTHORITYCONDITION",
+    "ESTATEINCLUSION",
+    "FACADE",
+    "FLOOR TO CEILING HEIGHT",
+    "SLAB",
+    "BRICKS",
+    "STAIRCASE",
+    "KITCHEN",
+    "KITCHEN ISLAND",
+    "BUTLERS KITCHEN",
+    "APPLIANCES",
+    "LAUNDRY",
+    "ALFRESCO",
+    "MEDIA",
+    "BATHROOMS",
+    "VANITY",
+    "ROBE",
+    "WALK IN ROBES",
+    "NICHE",
+    "TIMBER POST",
+    "RAILINGS",
+    "DOORS",
+    "DOORS & WINDOWS",
+    "SKYLIGHT",
+    "BAR",
+    "BAR-2",
+    "ADDITIONALS",
+    "Provisions",
+    "SWIMMING POOL",
+    "GRANNY",
+    "Deductions",
+    "PROJECT ADDITIONALS",
+    " CABINETRY",]; // Add more buttons as needed
+  filteredButtons: string[] = [];
   constructor(private _dialog: MatDialog,) {
-
+    this.filteredButtons = this.buttons.slice()
   }
   ngOnInit(): void {
 
@@ -27,5 +63,10 @@ export class CreateEstimatesComponent implements OnInit {
         }
       },
     });
+  }
+
+  filterList(event: Event): void {
+    const value = (event.target as HTMLInputElement).value;
+    this.filteredButtons = this.buttons.filter(button => button.toLowerCase().includes(value.toLowerCase()));
   }
 }

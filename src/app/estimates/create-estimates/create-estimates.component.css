@@ -1,0 +1,38 @@
+.drawer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px; /* Adjust width as needed */
+    height: 100%;
+    background-color: #f0f0f0; /* Adjust background color as needed */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2); /* Optional: add shadow for visual effect */
+    overflow-y: auto; /* Enable vertical scrolling if content exceeds height */
+  }
+  
+  .drawer-content {
+    padding: 20px; /* Adjust padding as needed */
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  li {
+    margin-bottom: 10px; /* Adjust margin between buttons as needed */
+  }
+  
+  button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: #ddd; /* Adjust button background color as needed */
+    color: #333; /* Adjust button text color as needed */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #ccc; /* Adjust button background color on hover as needed */
+  }

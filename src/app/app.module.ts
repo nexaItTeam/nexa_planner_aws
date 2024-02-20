@@ -7,6 +7,7 @@ import { EstimatesListComponent } from './estimates/estimates-list/estimates-lis
 import { CreateEstimatesComponent } from './estimates/create-estimates/create-estimates.component';
 import { MaterialModule } from './material.module';
 
+import { GridModule } from '@progress/kendo-angular-grid';
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,7 +17,8 @@ import { MaterialModule } from './material.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MaterialModule
+    MaterialModule,
+    GridModule
   ],
   providers: [],
   bootstrap: [AppComponent]
