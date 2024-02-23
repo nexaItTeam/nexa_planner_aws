@@ -36,3 +36,16 @@
   button:hover {
     background-color: #ccc; /* Adjust button background color on hover as needed */
   }
+  .container {
+    display: flex; /* Use flexbox to align items */
+  }
+  
+  .drawer {
+    flex: 0 0 250px; /* Set drawer width */
+  }
+  
+  .grid-container {
+    flex: 1; /* Expand grid container to fill remaining space */
+    padding-left: 20px; /* Add spacing between drawer and grid */
+    margin-top: 20px; /* Add margin to bring the grid down */
+  }

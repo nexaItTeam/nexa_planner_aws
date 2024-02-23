@@ -8,6 +8,8 @@ import { CreateEstimatesComponent } from './estimates/create-estimates/create-es
 import { MaterialModule } from './material.module';
 
 import { GridModule } from '@progress/kendo-angular-grid';
+import { HttpClientModule } from '@angular/common/http';
+import { EditService } from './estimates/estimates-list/edit.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,9 +20,10 @@ import { GridModule } from '@progress/kendo-angular-grid';
     BrowserModule,
     AppRoutingModule,
     MaterialModule,
-    GridModule
+    GridModule,
+    HttpClientModule 
   ],
-  providers: [],
+  providers: [EditService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

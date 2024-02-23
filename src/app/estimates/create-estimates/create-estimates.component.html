@@ -1,16 +1,53 @@
+<div class="container">
+  <div class="drawer">
+    <div class="drawer-content">
+      <input type="text" placeholder="Search..." (input)="filterList($event)">
+      <ul>
+        <li *ngFor="let button of filteredButtons">
+          <button (click)="opendetaillist(button)">{{ button }}</button>
+        </li>
 
-<div class="drawer">
-  <div class="drawer-content">
-    <input type="text" placeholder="Search..." (input)="filterList($event)">
-    <ul>
-      <li *ngFor="let button of filteredButtons">
-        <button (click)="opendetaillist('BasePrice')">{{ button }}</button>
-      </li>
-     
-  
-    </ul>  
+
+      </ul>
+    </div>
+  </div>
+  <div class="grid-container">
+    <kendo-grid #grid [data]="view" [group]="groups" [pageable]="true" [sortable]="true" (remove)="removeHandler($event)"
+      [navigable]="true">
+      <ng-template kendoGridToolbarTemplate>
+
+        <!-- <button kendoButton  (click)="saveChanges(grid)">Save Changes</button> -->
+
+      </ng-template>
+      
+      <kendo-grid-column field="component_type" title="component_type" [hidden]="true">
+        <ng-template kendoGridGroupHeaderTemplate let-field="field" let-value="value">
+          <!-- Display only the group value -->
+          {{ value }}
+        </ng-template>
+      </kendo-grid-column>
+      <kendo-grid-column field="description" title="description"></kendo-grid-column>
+
+      <kendo-grid-column field="cost" editor="numeric" title="cost">
+        <ng-template kendoGridCellTemplate let-dataItem>
+          {{ dataItem.cost | currency: 'USD'}}
+        </ng-template>
+      </kendo-grid-column>
+      <kendo-grid-column field="quantity" editor="numeric" title="quantity"></kendo-grid-column>
+      <kendo-grid-column field="unit" editor="numeric" title="unit"></kendo-grid-column>
+      <kendo-grid-column field="total" editor="numeric" title="total">
+        <ng-template kendoGridCellTemplate let-dataItem>
+          {{ (dataItem.cost * dataItem.quantity) | currency: 'USD'}}
+        </ng-template>
+      </kendo-grid-column>
+
+      <kendo-grid-command-column title="command" [width]="220">
+        <ng-template kendoGridCellTemplate let-isNew="isNew">
+          <button kendoGridRemoveCommand>Remove</button>
+          <button kendoGridSaveCommand>Add</button>
+          <button kendoGridCancelCommand>Cancel</button>
+        </ng-template>
+      </kendo-grid-command-column>
+    </kendo-grid>
   </div>
 </div>
-
-
-  
