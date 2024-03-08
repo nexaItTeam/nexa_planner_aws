@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Search..." [(ngModel)]="searchQuery" (input)="search()">
+        </div>
+      </div>
+      <div class="col-md-6 d-flex justify-content-end">
+        <button class="btn btn-primary" (click)="addProject()">Add Project</button>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-md-4" *ngFor="let item of filteredItems.length ? filteredItems : items">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{ item.title }}</h5>
+            <p class="card-text">{{ item.description }}</p>
+            <button class="btn btn-primary" (click)="onviewProjectclick()">view Project</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

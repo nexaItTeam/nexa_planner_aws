@@ -1,0 +1,51 @@
+/* Custom styling for sidebar */
+.side-navbar {
+    background-color: #f0f0f0; /* Set background color */
+    padding: 20px; /* Add padding */
+  }
+  
+  /* Custom styling for menu items */
+  .mat-nav-list .mat-list-item {
+    display: inline-block; /* Display items inline */
+    padding: 10px; /* Add padding */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    border-bottom: 2px solid transparent; /* Add transparent border bottom */
+    margin-right: 10px; /* Add margin between items */
+  }
+  
+  /* Custom styling for active menu items */
+  .mat-nav-list .mat-list-item.is-active {
+    border-color: #007bff; /* Set border color for active items */
+  }
+  
+  /* Adjustments to existing styles */
+  ::ng-deep .mat-expansion-panel-header {
+    padding: 0 16px !important; /* Adjust padding */
+    height: 48px !important; /* Adjust height */
+  }
+  
+  ::ng-deep .mat-nav-list .mat-icon {
+    margin-right: 10px; /* Add margin between icon and text */
+  }
+  
+  ::ng-deep .mat-nav-list .is-active {
+    background-color: rgb(204, 204, 204) !important; /* Adjust background color */
+    border-left: 8px solid rgb(139, 137, 133); /* Adjust left border */
+    width: calc(100% - 8px) !important; /* Adjust width */
+  }
+  
+  ::ng-deep .side-navnar .mdc-list-item__primary-text {
+    color: #ffff !important; /* Adjust text color */
+    align-items: center !important; /* Center align text */
+    display: flex !important; /* Display as flex */
+  }
+  
+  .mat-expansion-panel {
+    color: #568fed; /* Adjust text color */
+    background-color: transparent; /* Set background color to transparent */
+  }
+  
+  .mat-icon {
+    margin-right: 10px; /* Add margin between icon and text */
+  }
+  

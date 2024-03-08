@@ -1,50 +1,48 @@
 <mat-dialog-content>
-<kendo-grid
-#grid
-[data]="view "
-[pageSize]="gridState.take"
-[skip]="gridState.skip"
-[sort]="gridState.sort"
-[pageable]="true"
-[sortable]="true"
-(dataStateChange)="onStateChange($event)"
-(cellClick)="cellClickHandler($event)"
-(cellClose)="cellCloseHandler($event)"
-(cancel)="cancelHandler($event)"
-(save)="saveHandler($event)"
-(remove)="removeHandler($event)"
-(add)="addHandler($event)"
-[navigable]="true"
->
-<ng-template kendoGridToolbarTemplate>
-    <button kendoGridAddCommand>Add new</button>
-    <button kendoButton  (click)="saveChanges(grid)">Save Changes</button>
-    <button kendoButton  (click)="cancelChanges(grid)">Cancel Changes</button>
-</ng-template>
-<kendo-grid-column field="description" title="description"></kendo-grid-column>
+    <kendo-grid #grid [data]="view " [pageSize]="gridState.take" [skip]="gridState.skip"
+        [sort]="gridState.sort" [pageable]="true" [sortable]="true" (dataStateChange)="onStateChange($event)"
+        (cellClick)="cellClickHandler($event)" (cellClose)="cellCloseHandler($event)" (cancel)="cancelHandler($event)"
+        (save)="saveHandler($event)" (remove)="removeHandler($event)" (add)="addHandler($event)" [navigable]="true"
+        [selectable]="true"  >
+        <ng-template kendoGridToolbarTemplate>
+            <button kendoGridAddCommand>Add new</button>
+            <button kendoButton (click)="saveChanges(grid)">Save Changes</button>
+            <button kendoButton (click)="cancelChanges(grid)">Cancel Changes</button>
+        </ng-template>
 
-<kendo-grid-column field="cost" editor="numeric" title="cost">
-    <ng-template kendoGridCellTemplate let-dataItem>
-        {{ dataItem.cost  | currency: 'USD'}}
-    </ng-template>
-</kendo-grid-column>
-<kendo-grid-column field="quantity" editor="numeric" title="quantity"></kendo-grid-column>
-<kendo-grid-column field="unit" editor="numeric" title="unit"></kendo-grid-column>
-<kendo-grid-column field="total" editor="numeric" title="total">
-    <ng-template kendoGridCellTemplate let-dataItem>
-        {{ (dataItem.cost * dataItem.quantity) | currency: 'USD'}}
-    </ng-template>
-</kendo-grid-column>
+        <kendo-grid-column field="description" title="Description"></kendo-grid-column>
 
-<kendo-grid-command-column title="command" [width]="220">
-    <ng-template kendoGridCellTemplate let-isNew="isNew">
-        <button kendoGridRemoveCommand>Remove</button>
-        <button kendoGridSaveCommand>Add</button>
-        <button kendoGridCancelCommand>Cancel</button>
-    </ng-template>
-</kendo-grid-command-column>
-</kendo-grid>
-<div mat-dialog-actions>
-    <button mat-button (click)="onClose()">Close</button>
-  </div>
+        <kendo-grid-column field="cost" title="Cost">
+            <ng-template kendoGridCellTemplate let-dataItem>
+                {{ dataItem.cost | currency: 'USD'}}
+            </ng-template>
+        </kendo-grid-column>
+        <kendo-grid-column field="quantity" title="Quantity"></kendo-grid-column>
+        <kendo-grid-column field="unit" title="Unit"></kendo-grid-column>
+        <kendo-grid-column field="total" title="Total">
+            <ng-template kendoGridCellTemplate let-dataItem>
+                {{ (dataItem.cost * dataItem.quantity) | currency: 'USD'}}
+            </ng-template>
+        </kendo-grid-column>
+        <kendo-grid-column title="Matched">
+            <ng-template kendoGridCellTemplate let-dataItem>
+                <input type="checkbox" [checked]="isMatched(dataItem)"  (change)="onCheckboxChange($event, dataItem)"/>
+            </ng-template>
+        </kendo-grid-column>
+        <!-- <kendo-grid-checkbox-column [showSelectAll]="true" >
+            <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex" [headerClass]="'custom-header-class'" [class]="'custom-cell-class'">
+                
+                <input type="checkbox" [checked]="isMatched(dataItem)">
+            </ng-template></kendo-grid-checkbox-column>  -->
+        <kendo-grid-command-column title="command" [width]="220">
+            <ng-template kendoGridCellTemplate let-isNew="isNew">
+                <button kendoGridRemoveCommand>Remove</button>
+                <button kendoGridSaveCommand>Add</button>
+                <button kendoGridCancelCommand>Cancel</button>
+            </ng-template>
+        </kendo-grid-command-column>
+    </kendo-grid>
+    <div mat-dialog-actions>
+        <button mat-button (click)="onClose()">Close</button>
+    </div>
 </mat-dialog-content>

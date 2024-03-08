@@ -1,51 +1,146 @@
 .drawer {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 200px; /* Adjust width as needed */
-    height: 100%;
-    background-color: #f0f0f0; /* Adjust background color as needed */
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2); /* Optional: add shadow for visual effect */
-    overflow-y: auto; /* Enable vertical scrolling if content exceeds height */
-  }
-  
-  .drawer-content {
-    padding: 20px; /* Adjust padding as needed */
-  }
-  
-  ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  li {
-    margin-bottom: 10px; /* Adjust margin between buttons as needed */
-  }
-  
-  button {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    background-color: #ddd; /* Adjust button background color as needed */
-    color: #333; /* Adjust button text color as needed */
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  button:hover {
-    background-color: #ccc; /* Adjust button background color on hover as needed */
-  }
-  .container {
-    display: flex; /* Use flexbox to align items */
-  }
-  
-  .drawer {
-    flex: 0 0 250px; /* Set drawer width */
-  }
-  
-  .grid-container {
-    flex: 1; /* Expand grid container to fill remaining space */
-    padding-left: 20px; /* Add spacing between drawer and grid */
-    margin-top: 20px; /* Add margin to bring the grid down */
-  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200px;
+  /* Adjust width as needed */
+  height: 100%;
+  background-color: #f0f0f0;
+  /* Adjust background color as needed */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+  /* Optional: add shadow for visual effect */
+  overflow-y: auto;
+  /* Enable vertical scrolling if content exceeds height */
+}
+
+.drawer-content {
+  padding: 20px;
+  /* Adjust padding as needed */
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  margin-bottom: 10px;
+  /* Adjust margin between buttons as needed */
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background-color: #ddd;
+  /* Adjust button background color as needed */
+  color: #333;
+  /* Adjust button text color as needed */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #ccc;
+  /* Adjust button background color on hover as needed */
+}
+
+.container {
+  display: flex;
+  /* Use flexbox to align items */
+}
+
+.drawer {
+  flex: 0 0 250px;
+  /* Set drawer width */
+}
+
+.grid-container {
+  flex: 1;
+  /* Expand grid container to fill remaining space */
+  padding-left: 20px;
+  /* Add spacing between drawer and grid */
+  margin-top: 20px;
+  /* Add margin to bring the grid down */
+}
+
+/* //PDF STYLES */
+.page-template {
+  font-family: "DejaVu Sans", "Arial", sans-serif;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.page-template .header {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  right: 30px;
+  border-bottom: 1px solid #888;
+  color: #888;
+}
+
+.page-template .footer {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  right: 30px;
+  border-top: 1px solid #888;
+  text-align: center;
+  color: #888;
+  background-color: black;
+  /* Set the background color to black */
+  color: white;
+  /* Set the text color to white */
+}
+
+
+
+.watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  background-color: black;
+  color: rgba(0, 0, 0, 0.3);
+  /* Adjust the opacity as needed */
+  pointer-events: none;
+  /* Ensure the watermark does not interfere with clicks */
+}
+
+
+.k-pdf-export .k-group-indicator,
+.k-pdf-export .k-i-expand,
+.k-pdf-export .k-i-collapse {
+  display: none !important;
+}
+
+.k-group-indicator {
+  display: none !important;
+}
+
+.k-grid .k-grouping-row .k-icon,
+.k-grid .k-grouping-row .k-svg-icon {
+  color: #424242;
+  display: none !important;
+}
+
+.k-group-indicator {
+  display: none !important;
+}
+
+.k-svg-i-caret-alt-down {
+  display: none !important;
+}
+
+.page-template .custom-footer {
+  background-color: black;
+  /* Set the background color to black */
+  color: white;
+  /* Set the text color to white */
+}

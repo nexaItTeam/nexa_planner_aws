@@ -1,0 +1,17 @@
+.highlighted-row {
+    background-color: #f0f0f0 !important; /* Set the background color to highlight the row */
+  }
+  #my-grid tr.gold {
+    background-color: #ffba80 !important;
+  }
+
+  .custom-header-class {
+    /* Custom styles for header cell */
+    background-color: #f0f0f0; /* Example background color */
+    color: #333; /* Example text color */
+}
+
+.custom-cell-class {
+    /* Custom styles for cells */
+    text-align: center; /* Example center alignment */
+}

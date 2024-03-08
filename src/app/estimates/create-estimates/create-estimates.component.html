@@ -12,26 +12,33 @@
     </div>
   </div>
   <div class="grid-container">
-    <kendo-grid #grid [data]="view" [group]="groups" [pageable]="true" [sortable]="true" (remove)="removeHandler($event)"
-      [navigable]="true">
+    <kendo-grid #grid [data]="view" [group]="groups" [pageable]="true" [sortable]="true"
+      (remove)="removeHandler($event)" [navigable]="true">
       <ng-template kendoGridToolbarTemplate>
-
-        <!-- <button kendoButton  (click)="saveChanges(grid)">Save Changes</button> -->
-
+        <button kendoGridPDFCommand>
+          Export to PDF
+        </button>
       </ng-template>
-      
+
       <kendo-grid-column field="component_type" title="component_type" [hidden]="true">
-        <ng-template kendoGridGroupHeaderTemplate let-field="field" let-value="value">
-          <!-- Display only the group value -->
-          {{ value }}
+        <ng-template kendoGridGroupHeaderTemplate let-field="field" let-value="value" let-index="index">
+          <span> {{ +index + 1 }} - {{ value }}</span>
         </ng-template>
       </kendo-grid-column>
-      <kendo-grid-column field="description" title="description"></kendo-grid-column>
+      <kendo-grid-column field="description" title="description">
+        <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
+        
+        <span>{{ dataItem.description }}</span> 
+          <!-- Access the index of each child item -->
+          
+        </ng-template>
+      </kendo-grid-column>
 
       <kendo-grid-column field="cost" editor="numeric" title="cost">
         <ng-template kendoGridCellTemplate let-dataItem>
           {{ dataItem.cost | currency: 'USD'}}
         </ng-template>
+        
       </kendo-grid-column>
       <kendo-grid-column field="quantity" editor="numeric" title="quantity"></kendo-grid-column>
       <kendo-grid-column field="unit" editor="numeric" title="unit"></kendo-grid-column>
@@ -48,6 +55,27 @@
           <button kendoGridCancelCommand>Cancel</button>
         </ng-template>
       </kendo-grid-command-column>
+      <kendo-grid-pdf fileName="Estimates.pdf" [allPages]="true" paperSize="A4" [repeatHeaders]="true"
+        [landscape]="true">
+        <kendo-grid-pdf-margin top="2cm" left="1cm" right="1cm" bottom="2cm"></kendo-grid-pdf-margin>
+        <ng-template kendoGridPDFTemplate let-pageNum="pageNum" let-totalPages="totalPages">
+        
+         
+          <div class="page-template">
+            <div class="header">
+              <div style="float: right">
+                Page {{ pageNum }} of {{ totalPages }}
+              </div>
+              Multi-page grid with automatic page breaking
+            </div>
+            <div class="footer custom-footer"> construction@nexahomes.com.au Page {{ pageNum }} of {{ totalPages }}</div>
+          </div>
+
+
+
+        </ng-template>
+
+      </kendo-grid-pdf>
     </kendo-grid>
   </div>
 </div>
