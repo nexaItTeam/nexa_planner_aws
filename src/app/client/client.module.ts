@@ -7,6 +7,16 @@ import { ProjectDetailsComponent } from './project/project-details/project-detai
 import { LayoutModule } from '../layout/layout.module';
 import { FormsModule } from '@angular/forms';
 import { ProjectCostComponent } from './project/project-cost/project-cost.component';
+import { ScheduleChartComponent } from './project/project-details-submodule/schedule-chart/schedule-chart.component';
+import { ProjectAssigneComponent } from './project/project-details-submodule/project-assigne/project-assigne.component';
+import { ProjectMatListComponent } from './project/project-details-submodule/project-mat-list/project-mat-list.component';
+import { EditService } from './estimates/estimates-list/edit.service';
+import { CreateEstimatesComponent } from './estimates/create-estimates/create-estimates.component';
+import { EstimatesListComponent } from './estimates/estimates-list/estimates-list.component';
+import { GridModule, PDFModule } from '@progress/kendo-angular-grid';
+import { HttpClientModule } from '@angular/common/http';
+import { MaterialModule } from '../material.module';
+import { RoleMappingComponent } from './master/role-mapping/role-mapping.component';
 
 
 @NgModule({
@@ -15,12 +25,24 @@ import { ProjectCostComponent } from './project/project-cost/project-cost.compon
     AddProjectComponent,
     ClientLayoutComponent,
     ProjectDetailsComponent,
-    ProjectCostComponent
+    ProjectCostComponent,
+    ScheduleChartComponent,
+    ProjectAssigneComponent,
+    ProjectMatListComponent,
+    EstimatesListComponent,
+    CreateEstimatesComponent,
+    RoleMappingComponent,
+    
   ],
   imports: [
     CommonModule,
     LayoutModule,
-    FormsModule
-  ]
+    FormsModule,
+    GridModule,
+    PDFModule,
+    HttpClientModule ,
+    MaterialModule,
+  ],
+  providers:[EditService]
 })
 export class ClientModule { }

@@ -12,4 +12,7 @@ export class GenericApiService {
   fetchData(url:string,body:any): Observable<any> {
     return this.http.post(url,body);
   }
+  fetchweatherData(url:string){
+    return this.http.get(url);
+   }
 }
