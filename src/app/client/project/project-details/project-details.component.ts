@@ -10,7 +10,7 @@ import { GenericApiService } from 'src/app/shared/generic-api.service';
 })
 export class ProjectDetailsComponent implements OnInit {
   weatherData: any;
-  tiles: string[] = ['Schedule Chart', 'Project Cost', 'Material List', 'Assignee Details', 'Tile 5', 'Tile 6', 'Tile 7', 'Tile 8', 'Tile 9', 'Tile 10'];
+  tiles: string[] = ['Schedule Chart', 'Project Cost', 'Material List', 'Assignee Details', 'Checklist', 'Archived Documents', 'Site', 'Checklist', 'Quotation from vendor', 'Tile 10'];
   tasks: string[] = ['Task 1', 'Task 2', 'Task 3', 'Task 4', 'Task 5'];
   public currentWeather:any
   public nextFiveDays:any

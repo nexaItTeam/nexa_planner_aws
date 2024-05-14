@@ -1,0 +1,34 @@
+<button class="group-button" (click)="groupBy('approval')">Group by Stage</button>
+<button class="group-button" (click)="groupBy('Approval Document 2')">Group by Document</button>
+    <kendo-grid [data]="dataSource" [filterable]="true" [pageSize]="10" [pageable]="true"
+        [selectable]="true" [groupable]="true" [group]="groups"  [resizable]="true">
+        <ng-template kendoGridToolbarTemplate>
+          
+            
+           
+        </ng-template>
+
+        <kendo-grid-column field="task" title="Task"> </kendo-grid-column>
+        <kendo-grid-column field="upload" title="Upload" [width]="150">
+            <ng-template kendoGridCellTemplate let-dataItem>
+                <!-- Custom template for displaying upload field -->
+                <ng-container *ngIf="isUploadArray(dataItem.upload)">
+                    <div *ngFor="let item of dataItem.upload">
+                        <a href="{{item.key}}" target="_blank">{{item.key}}</a>
+                    </div>
+                </ng-container>
+                <ng-container *ngIf="!isUploadArray(dataItem.upload)">
+                    <a href="{{dataItem.upload}}" target="_blank">{{dataItem.upload}}</a>
+                </ng-container>
+            </ng-template>
+        </kendo-grid-column>
+        
+        <kendo-grid-column field="revision number" title="Revision Number"></kendo-grid-column>
+        <kendo-grid-column field="date" title="date"></kendo-grid-column>
+        <kendo-grid-column field="last approved" title="last approved">
+          
+           
+        </kendo-grid-column>           
+       
+       
+    </kendo-grid>

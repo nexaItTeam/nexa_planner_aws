@@ -16,6 +16,7 @@ import { ProjectAssigneComponent } from './client/project/project-details-submod
 import { ProjectMatListComponent } from './client/project/project-details-submodule/project-mat-list/project-mat-list.component';
 import { CreateEstimatesComponent } from './client/estimates/create-estimates/create-estimates.component';
 import { RoleMappingComponent } from './client/master/role-mapping/role-mapping.component';
+import { ProjectChecklistComponent } from './client/project/project-details-submodule/project-checklist/project-checklist.component';
 
 
 
@@ -73,6 +74,11 @@ const routes: Routes = [
       {
         path: 'role-mapping',
         component: RoleMappingComponent,
+        data: { type:'admin'},
+      },
+      {
+        path: 'checklist',
+        component: ProjectChecklistComponent,
         data: { type:'admin'},
       }
                 
